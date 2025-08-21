@@ -1,0 +1,391 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #0a0a0a;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+.header {
+  width: 100%;
+  background: #111;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav__menu {
+  display: flex;
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #ddd;
+  transition: color 0.3s;
+}
+
+.nav__link:hover {
+  color: #00bcd4;
+}
+
+.nav__toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* ===== HOME ===== */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 5rem;
+}
+
+.home__container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.home__title {
+  font-size: 2.5rem;
+}
+
+.home__title span {
+  color: #00bcd4;
+}
+
+.home__subtitle {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #aaa;
+}
+
+.home__social {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.home__social-icon {
+  font-size: 2rem; /* bigger */
+  color: #fff;
+  transition: 0.3s;
+}
+
+.home__social-icon:hover {
+  transform: scale(1.25);
+}
+
+.home__social-icon i.fa-facebook:hover { color: #1877f2; }
+.home__social-icon i.fa-instagram:hover { color: #e1306c; }
+.home__social-icon i.fa-github:hover { color: #f5f5f5; }
+
+.home__img img {
+  width: 280px;
+  border-radius: 50%;
+  border: 3px solid #00bcd4;
+}
+
+/* ===== ABOUT ===== */
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #00bcd4;
+}
+
+.about__container {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+/* ===== SKILLS ===== */
+.skills {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.skills__container {
+  width: 85%;
+  margin: auto;
+  display: grid;
+  gap: 2rem;
+}
+
+.skills__category {
+  background: #111;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.skills__category:hover {
+  transform: translateY(-5px);
+}
+
+.skills__category h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #00bcd4;
+  text-align: center;
+}
+
+/* Generic list badges */
+.skills__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.skill-badge {
+  padding: 0.5rem 1rem;
+  border: 1px solid #00bcd4;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  background: rgba(0, 188, 212, 0.1);
+  color: #f5f5f5;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.skill-badge:hover {
+  background: #00bcd4;
+  color: #0a0a0a;
+  transform: scale(1.1);
+}
+
+/* Icons + labels for Programming Languages and Tools */
+.skills-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.skills-icons div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.skills-icons i {
+  font-size: 50px; /* Bigger icons */
+  margin-bottom: 8px;
+}
+
+.skills-icons span {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+/* ===== PORTFOLIO ===== */
+.portfolio__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.portfolio__content {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  max-width: 400px;
+}
+
+.portfolio__img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s;
+  border-radius: 10px;
+}
+
+.portfolio__content:hover .portfolio__img {
+  transform: scale(1.05);
+}
+
+.portfolio__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 188, 212, 0.8);
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.portfolio__content:hover .portfolio__overlay {
+  opacity: 1;
+}
+
+.portfolio__overlay p {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ===== MODAL (Lightbox) ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.95);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 70%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.6);
+  animation: zoomIn 0.4s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f5f5f5;
+  font-size: 3rem; /* bigger */
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.close:hover {
+  color: #00bcd4;
+  transform: scale(1.2);
+}
+
+/* Navigation Arrows */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 1rem;
+  color: #f5f5f5;
+  font-weight: bold;
+  font-size: 3rem; /* bigger */
+  transition: 0.3s;
+  user-select: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  transform: translateY(-50%);
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0, 188, 212, 0.7);
+  transform: scale(1.2);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Responsive Modal */
+@media screen and (max-width: 768px) {
+  .modal-content {
+    max-width: 90%;
+    max-height: 70%;
+  }
+
+  .prev, .next, .close {
+    font-size: 3.5rem; /* slightly bigger for mobile */
+  }
+}
+
+/* ===== CONTACT ===== */
+.contact__container {
+  text-align: center;
+}
+
+.contact__social {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.contact__icon {
+  font-size: 2.5rem; /* bigger */
+  color: #fff;
+  transition: 0.3s;
+}
+
+.contact__icon:hover {
+  transform: scale(1.25);
+}
+
+.contact__icon i.fa-facebook:hover { color: #1877f2; }
+.contact__icon i.fa-instagram:hover { color: #e1306c; }
+.contact__icon i.fa-github:hover { color: #f5f5f5; }
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: #111;
+  margin-top: 2rem;
+  color: #aaa;
+}
