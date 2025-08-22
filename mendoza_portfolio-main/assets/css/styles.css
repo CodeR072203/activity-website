@@ -61,6 +61,7 @@ body {
   display: none;
   font-size: 1.5rem;
   color: #fff;
+  cursor: pointer;
 }
 
 /* ===== HOME ===== */
@@ -76,6 +77,9 @@ body {
   display: flex;
   align-items: center;
   gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
 }
 
 .home__title {
@@ -92,35 +96,16 @@ body {
   color: #aaa;
 }
 
-.home__social {
-  margin-top: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.home__social-icon {
-  font-size: 2rem; /* bigger */
-  color: #fff;
-  transition: 0.3s;
-}
-
-.home__social-icon:hover {
-  transform: scale(1.25);
-}
-
-.home__social-icon i.fa-facebook:hover { color: #1877f2; }
-.home__social-icon i.fa-instagram:hover { color: #e1306c; }
-.home__social-icon i.fa-github:hover { color: #f5f5f5; }
-
 .home__img img {
   width: 280px;
+  max-width: 90%;
   border-radius: 50%;
   border: 3px solid #00bcd4;
 }
 
-/* ===== ABOUT ===== */
+/* ===== SECTION TITLES ===== */
 .section {
-  padding: 4rem 0;
+  padding: 4rem 2rem;
 }
 
 .section-title {
@@ -130,6 +115,7 @@ body {
   color: #00bcd4;
 }
 
+/* ===== ABOUT ===== */
 .about__container {
   width: 80%;
   margin: auto;
@@ -137,92 +123,58 @@ body {
 }
 
 /* ===== SKILLS ===== */
-.skills {
+/* Center the Skills heading */
+#skills h2 {
   text-align: center;
-  padding: 50px 20px;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #00bcd4; /* optional: same color as section titles */
 }
 
-.skills__container {
-  width: 85%;
-  margin: auto;
-  display: grid;
-  gap: 2rem;
-}
-
-.skills__category {
-  background: #111;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 188, 212, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.skills__category:hover {
-  transform: translateY(-5px);
-}
-
-.skills__category h3 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  color: #00bcd4;
-  text-align: center;
-}
-
-/* Generic list badges */
-.skills__list {
+.skills-category {
+  margin-bottom: 2rem;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.8rem;
+  flex-direction: column;
+  align-items: center;  /* centers the category content */
+  text-align: center;
 }
 
-.skill-badge {
-  padding: 0.5rem 1rem;
-  border: 1px solid #00bcd4;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  background: rgba(0, 188, 212, 0.1);
-  color: #f5f5f5;
-  transition: background 0.3s, transform 0.3s;
-}
-
-.skill-badge:hover {
-  background: #00bcd4;
-  color: #0a0a0a;
-  transform: scale(1.1);
-}
-
-/* Icons + labels for Programming Languages and Tools */
 .skills-icons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 20px;
+  gap: 1rem;
+  justify-content: center; /* centers all skill boxes horizontally */
 }
 
 .skills-icons div {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  color: white;
+  align-items: center;  /* centers icon and text */
+  justify-content: center;
+  text-align: center;   /* centers the skill name under icon */
+  width: 80px;
+  padding: 1rem;
+  border-radius: 12px;
+  background: #1a1a1a;
+  transition: transform 0.3s;
+}
+
+.skills-icons div:hover {
+  transform: translateY(-5px);
 }
 
 .skills-icons i {
-  font-size: 50px; /* Bigger icons */
-  margin-bottom: 8px;
-}
-
-.skills-icons span {
-  font-size: 16px;
-  margin-top: 5px;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #00bcd4;
 }
 
 /* ===== PORTFOLIO ===== */
 .portfolio__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
   width: 90%;
   margin: auto;
 }
@@ -232,6 +184,7 @@ body {
   overflow: hidden;
   border-radius: 10px;
   cursor: pointer;
+  width: 100%;
   max-width: 400px;
 }
 
@@ -273,12 +226,11 @@ body {
   display: none;
   position: fixed;
   z-index: 200;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   animation: fadeIn 0.4s ease-in-out;
 }
 
@@ -287,9 +239,7 @@ body {
   to { opacity: 1; }
 }
 
-.modal-content {
-  margin: auto;
-  display: block;
+.modal img {
   max-width: 70%;
   max-height: 80%;
   border-radius: 10px;
@@ -302,24 +252,21 @@ body {
   to { transform: scale(1); opacity: 1; }
 }
 
-/* Close Button */
 .close {
   position: absolute;
   top: 20px;
   right: 35px;
   color: #f5f5f5;
-  font-size: 3rem; /* bigger */
+  font-size: 40px;
   font-weight: bold;
   cursor: pointer;
-  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s;
 }
 
 .close:hover {
   color: #00bcd4;
-  transform: scale(1.2);
 }
 
-/* Navigation Arrows */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -327,7 +274,7 @@ body {
   padding: 1rem;
   color: #f5f5f5;
   font-weight: bold;
-  font-size: 3rem; /* bigger */
+  font-size: 2rem;
   transition: 0.3s;
   user-select: none;
   border-radius: 50%;
@@ -337,23 +284,10 @@ body {
 
 .prev:hover, .next:hover {
   background: rgba(0, 188, 212, 0.7);
-  transform: scale(1.2);
 }
 
 .prev { left: 20px; }
 .next { right: 20px; }
-
-/* Responsive Modal */
-@media screen and (max-width: 768px) {
-  .modal-content {
-    max-width: 90%;
-    max-height: 70%;
-  }
-
-  .prev, .next, .close {
-    font-size: 3.5rem; /* slightly bigger for mobile */
-  }
-}
 
 /* ===== CONTACT ===== */
 .contact__container {
@@ -368,13 +302,13 @@ body {
 }
 
 .contact__icon {
-  font-size: 2.5rem; /* bigger */
+  font-size: 2rem;
   color: #fff;
   transition: 0.3s;
 }
 
 .contact__icon:hover {
-  transform: scale(1.25);
+  transform: scale(1.2);
 }
 
 .contact__icon i.fa-facebook:hover { color: #1877f2; }
@@ -388,4 +322,79 @@ body {
   background: #111;
   margin-top: 2rem;
   color: #aaa;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .home__container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav__toggle {
+    display: block;
+  }
+
+  .nav__menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #111;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 1rem 2rem;
+  }
+
+  .nav__menu.active {
+    display: flex;
+  }
+
+  .home__title {
+    font-size: 2rem;
+  }
+
+  .home__subtitle {
+    font-size: 1rem;
+  }
+
+  .home__img img {
+    width: 200px;
+  }
+
+  .skills-icons div {
+    width: 60px;
+    padding: 0.8rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .home__title {
+    font-size: 1.5rem;
+  }
+
+  .home__subtitle {
+    font-size: 0.9rem;
+  }
+
+  .skills-icons div {
+    width: 50px;
+    padding: 0.5rem;
+  }
+
+  .portfolio__container {
+    grid-template-columns: 1fr;
+  }
+
+  .modal img {
+    max-width: 90%;
+    max-height: 70%;
+  }
 }
